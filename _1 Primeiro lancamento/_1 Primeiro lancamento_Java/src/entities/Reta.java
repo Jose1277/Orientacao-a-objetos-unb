@@ -1,6 +1,6 @@
 package entities;
 
-public class Reta{
+public class Reta {
     private Ponto a;
     private Ponto b;
 
