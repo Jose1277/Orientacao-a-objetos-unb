@@ -42,17 +42,17 @@ class Quadrilatero:
         self.ponto_3 = ponto_c
         self.ponto_4 = ponto_d
         self.reta_ab = Reta(ponto_a, ponto_b)
-        self.reta_bd = Reta(ponto_b, ponto_d)    
-        self.reta_dc = Reta(ponto_d, ponto_c)
-        self.reta_ca = Reta(ponto_c, ponto_a)
+        self.reta_bc = Reta(ponto_b, ponto_c)    
+        self.reta_cd = Reta(ponto_c, ponto_d)
+        self.reta_da = Reta(ponto_d, ponto_a)
         
     def area(self):
-        return self.reta_ab.calcula_comprimento() * self.reta_bd.calcula_comprimento()
+        return self.reta_ab.calcula_comprimento() * self.reta_bc.calcula_comprimento()
 
 ponto_a = Ponto(0, 0)
 ponto_b = Ponto(10, 0)
-ponto_c = Ponto(0, 10)
-ponto_d = Ponto(10, 10)
+ponto_c = Ponto(10, 10)
+ponto_d = Ponto(0, 10)
 
 #cria uma reta entre os pontos a e b
 reta_ab = Reta(ponto_a, ponto_b)

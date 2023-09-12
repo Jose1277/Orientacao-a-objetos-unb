@@ -1,10 +1,10 @@
 package entities;
 
-public class Paralelepipedo{
+public class Quadrilatero {
     private Ponto a, b, c, d;
     private Reta ab, bc;
 
-    public Paralelepipedo(Ponto a, Ponto b, Ponto c, Ponto d) {
+    public Quadrilatero(Ponto a, Ponto b, Ponto c, Ponto d) {
         this.a = a;
         this.b = b;
         this.c = c;
