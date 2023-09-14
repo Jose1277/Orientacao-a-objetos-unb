@@ -1,75 +1,76 @@
 import math
-
-class Ponto:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-
-class Reta:
-    def __init__(self, ponto_a, ponto_b):
-        self.ponto_1 = ponto_a
-        self.ponto_2 = ponto_b
-        
-    def calcula_comprimento(self):
-        return ((self.ponto_1.x - self.ponto_2.x)**2 + (self.ponto_1.y - self.ponto_2.y)**2)**0.5
-        
-class Triangulo:
-    def __init__(self, ponto_a, ponto_b, ponto_c):
-        self.ponto_1 = ponto_a
-        self.ponto_2 = ponto_b
-        self.ponto_3 = ponto_c
-        self.reta_ab = Reta(ponto_a, ponto_b)
-        self.reta_bc = Reta(ponto_b, ponto_c)    
-        self.reta_ca = Reta(ponto_c, ponto_a)
-        
-    def area(self):
-        p = (self.reta_ab.calcula_comprimento() + self.reta_bc.calcula_comprimento() + self.reta_ca.calcula_comprimento())/2
-        return (p*(p-self.reta_ab.calcula_comprimento())*(p-self.reta_bc.calcula_comprimento())*(p-self.reta_ca.calcula_comprimento()))**0.5
-    
-class Circulo:
-    def __init__(self, centro, raio):
-        self.centro = centro
-        self.raio = raio
-        
-    def area(self):
-        return math.pi*self.raio**2
-    
-class Quadrilatero:
-    def __init__(self, ponto_a, ponto_b, ponto_c, ponto_d):
-        self.ponto_1 = ponto_a
-        self.ponto_2 = ponto_b
-        self.ponto_3 = ponto_c
-        self.ponto_4 = ponto_d
-        self.reta_ab = Reta(ponto_a, ponto_b)
-        self.reta_bc = Reta(ponto_b, ponto_c)    
-        self.reta_cd = Reta(ponto_c, ponto_d)
-        self.reta_da = Reta(ponto_d, ponto_a)
-        
-    def area(self):
-        return self.reta_ab.calcula_comprimento() * self.reta_bc.calcula_comprimento()
+from entidades import *
+from Quadrilateros import *
 
 ponto_a = Ponto(0, 0)
 ponto_b = Ponto(10, 0)
 ponto_c = Ponto(10, 10)
 ponto_d = Ponto(0, 10)
+#mostra a distancia entre o ponto a e o ponto b
+
+print("Distancia entre os pontos a e b:")
+print(ponto_a.distancia_de(ponto_c))
+#mostra o quadrante do ponto a
+print(ponto_a.quadrante())
+#mostra o ponto a
+print(ponto_a)
+print("\n")
 
 #cria uma reta entre os pontos a e b
 reta_ab = Reta(ponto_a, ponto_b)
 #mostra o comprimento da reta ab
+print("Comprimento da reta ab:")
 print(reta_ab.calcula_comprimento())
+print("\n")
 
-#cria um triangulo retangulo com vertices a, b e c
+#cria um triangulo retângulo com vertices a, b e c
 triangulo_abc = Triangulo(ponto_a, ponto_b, ponto_c)
 #mostra a area do triangulo abc
+print("Area do triangulo abc:")
 print(triangulo_abc.area())
+print("\n")
 
 #cria um circulo de raio 5 e centro em (0, 0)
 circulo = Circulo(ponto_a, 5)
 #mostra a area do circulo com centro em a e raio 5
+print("Area do circulo com centro em a e raio 5:")
 print(circulo.area())
+print("\n")
 
 #cria um quadrado com vertices a, b, c e d
-quadrilatero = Quadrilatero(ponto_a, ponto_b, ponto_c, ponto_d)
+quadrado = Quadrado(ponto_a, ponto_b, ponto_c, ponto_d)
 #mostra a area do quadrado abcd
-print(quadrilatero.area())
+print("Area do quadrado abcd:")
+print(quadrado.area())
+print("\n")
+
+#troca os pontos a, b, c, d para formar um trapézio
+ponto_c = Ponto(7, 10)
+ponto_d = Ponto(3, 10)
+#cria um trapézio com vertices a, b, c e d
+trapezio = Trapezio(ponto_a, ponto_b, ponto_c, ponto_d)
+#mostra a area do trapézio abcd
+print("Area do trapezio abcd:")
+print(trapezio.area())
+print("\n")
+
+#troca os pontos a, b, c, d para formar um retângulo
+ponto_c = Ponto(10, 5)
+ponto_d = Ponto(0, 5)
+#cria um retângulo com vertices a, b, c e d
+retangulo = Retangulo(ponto_a, ponto_b, ponto_c, ponto_d)
+#mostra a area do retângulo abcd
+print("Area do retangulo abcd:")
+print(retangulo.area())
+print("\n")
+
+#troca os pontos a, b, c, d para formar um losango
+ponto_a = Ponto(0, 0)
+ponto_b = Ponto(10, 10)
+ponto_c = Ponto(20, 0)
+ponto_d = Ponto(10, -10)
+#cria um losango com vertices a, b, c e d
+losango = Losango(ponto_a, ponto_b, ponto_c, ponto_d)
+#mostra a area do losango abcd
+print("Area do losango abcd:")
+print(losango.area())
